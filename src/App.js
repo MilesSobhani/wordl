@@ -4,7 +4,7 @@ import 'react-simple-keyboard/build/css/index.css';
 import WordMatrix from './Components/WordMatrix.js'
 import data from './data'
 
-
+//Keyboard customized layout
 const newLayout = {
   'default': [
     'q w e r t y u i o p',
@@ -25,38 +25,32 @@ constructor(props){
     totalGuesses: 6,
     wordLength: 5,
     gameBoard: [],
-    isLoading: false
+    doneLoading: false
 
   }
   this.onKeyPress = this.onKeyPress.bind(this) 
 }
 
-
+//Handles all letter inputs
 onKeyPress(button){
   if(button !== 'Submit' && button !== 'Delete'){
-
+    
     console.log(this.state.currentRow);
     let guessUpdate = this.state.currentGuess;
     let nextBoard = this.state.gameBoard;
 
-  
-
       nextBoard[this.state.currentRow] = this.state.currentGuess;
-      this.setState({
-        gameBoard: nextBoard
-      })
       if(this.state.currentLetter < this.state.wordLength){
         
         guessUpdate[this.state.currentLetter] = button;
         
         this.setState({
+          gameBoard: nextBoard,
           currentGuess: guessUpdate,
           currentLetter: this.state.currentLetter + 1
         });
       }
-
-    
-
+//Handles Delete and Enter inputs
     } else if(button === 'Submit'){
       this.handleGuess()
     } else {
@@ -66,6 +60,7 @@ onKeyPress(button){
 
 
 componentDidMount(){
+  //Builds the initial gameBoard
   let newBoard = []
   for(var i = 0; i < this.state.totalGuesses; i++){
     newBoard.push([]);
@@ -73,16 +68,18 @@ componentDidMount(){
       newBoard[i].push('');
     }
   }
+  //Generates initial answer and applies it to state
   const newAnswer = data.data1[Math.floor(Math.random() * 2309)]
   this.setState({
     gameBoard: newBoard,
     answer: newAnswer,
-    isLoading: true
+    doneLoading: true
   })
 
 
 }
 
+//Handles the delete button
 handleDelete(){
   let guessUpdate = this.state.currentGuess;
   let nextBoard = this.state.gameBoard;
@@ -100,7 +97,7 @@ handleDelete(){
   }
 }
 
-
+//Handles the enter function, puts the guess on the state game board
 handleGuess(){
   let guessString = this.state.currentGuess.join('');
   console.log(guessString)
@@ -136,7 +133,7 @@ handleGuess(){
           <p>
           the correct answer is... {this.state.answer}
           </p>
-          {this.state.isLoading
+          {this.state.doneLoading
             ?
             <WordMatrix 
             wordLength={this.state.wordLength} 
@@ -145,7 +142,7 @@ handleGuess(){
             answer={this.state.answer} 
             totalGuesses={this.state.totalGuesses}
             gameBoard={this.state.gameBoard}
-            isLoading = {this.state.isLoading}
+            doneLoading = {this.state.isLoading}
             />
             : 'Loading'
           }

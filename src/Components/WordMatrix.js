@@ -2,13 +2,14 @@ import React from 'react';
 import Row from './Row.js'
 
 export default function WordMatrix(props){
+
+  //Determines how many rows to make and creates them
   const guessArr = [];
   for(var i = 0; i < props.totalGuesses; i++){
     guessArr.push('');
   }
   return(
     <div>
-      this is the WORD MATRIX
       {guessArr.map((row, index) => 
       <div className={'row'}>
 
