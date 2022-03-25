@@ -11,8 +11,16 @@ export default function WordMatrix(props){
       this is the WORD MATRIX
       {guessArr.map((row, index) => 
       <div className={'row'}>
-        <Row currentRow={props.currentRow} currentGuess={props.currentGuess} 
-         row={index} wordLength={props.wordLength} answer={props.answer}/>
+
+        <Row 
+        currentRow={props.currentRow} 
+        currentGuess={props.currentGuess} 
+        row={index} 
+        wordLength={props.wordLength} 
+        answer={props.answer}
+        gameBoard={props.gameBoard}
+        />
+
       </div>
       )}
     </div>

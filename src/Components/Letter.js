@@ -4,7 +4,9 @@ export default function Letter(props){
   
   return(
     <>
-     {props.currentRow === true ? props.currentGuess[props.letter] : ''}
+    
+
+     {props.gameBoard[props.coordinates[0]][props.coordinates[1]]}
     </>
   )
 
