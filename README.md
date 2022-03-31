@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#This is a fun Wordle clone I am building as a side project.
+This is a fun Wordle clone I am building as a side project.
 
 Guess the word within 6 guesses. Each guess reveals correct letters and their positions if they contain any. Unlike the App it is based on, my version is repeatable as many times a day as a player is interested.
 
