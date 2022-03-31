@@ -12,10 +12,20 @@ code {
     monospace;
 }
 
+h2 {
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+p {
+  font-size: small;
+}
+
 .row {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size:larger;
 }
 
 .column {
@@ -23,9 +33,43 @@ code {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border: 2px solid darkgray;
   margin: 5px;
   border-radius: 1em;
+}
+
+.correctLetter {
+  background-color: rgb(255, 255, 79);
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 0.9em;
+}
+
+.correctSpot {
+  background-color: rgb(90, 199, 90);
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 0.9em;
+}
+
+.keyboard {
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.header {
+  background-color: #2b4986;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
